@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from 'express';
 const EbayAuthToken = require('ebay-oauth-nodejs-client');
 const crypto = require('crypto');
 const axios = require('axios');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -29,8 +30,6 @@ app.get('/dresses', async (req: Request, res: Response) => {
       },
     },
   );
-
-  console.log('itemSummaries: ', response.data.itemSummaries.length);
 
   res.send(response.data);
 });
