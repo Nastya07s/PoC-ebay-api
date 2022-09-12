@@ -22,7 +22,7 @@ const ebayAuthToken = new EbayAuthToken({
 app.get('/dresses', async (req: Request, res: Response) => {
   const token = await ebayAuthToken.getApplicationToken('PRODUCTION');
 
-  console.log('token');
+  console.log('token', token);
 
   try {
     const response = await axios.get(
