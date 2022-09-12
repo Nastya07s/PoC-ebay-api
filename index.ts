@@ -22,8 +22,6 @@ const ebayAuthToken = new EbayAuthToken({
 app.get('/dresses', async (req: Request, res: Response) => {
   const token = await ebayAuthToken.getApplicationToken('PRODUCTION');
 
-  console.log('token', token);
-
   try {
     const response = await axios.get(
       'https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=63861&limit=200',
