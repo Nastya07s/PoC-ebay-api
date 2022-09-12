@@ -20,13 +20,13 @@ const ebayAuthToken = new EbayAuthToken({
 });
 
 app.get('/dresses', async (req: Request, res: Response) => {
-  const tokenP = await ebayAuthToken.getApplicationToken('PRODUCTION');
+  const token = await ebayAuthToken.getApplicationToken('PRODUCTION');
 
   const response = await axios.get(
     'https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=63861&limit=200',
     {
       headers: {
-        Authorization: 'Bearer ' + tokenP,
+        Authorization: 'Bearer ' + token,
       },
     },
   );
