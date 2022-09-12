@@ -22,16 +22,23 @@ const ebayAuthToken = new EbayAuthToken({
 app.get('/dresses', async (req: Request, res: Response) => {
   const token = await ebayAuthToken.getApplicationToken('PRODUCTION');
 
-  const response = await axios.get(
-    'https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=63861&limit=200',
-    {
-      headers: {
-        Authorization: 'Bearer ' + token,
-      },
-    },
-  );
+  console.log('token');
 
-  res.send(response.data);
+  try {
+    const response = await axios.get(
+      'https://api.ebay.com/buy/browse/v1/item_summary/search?category_ids=63861&limit=200',
+      {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      },
+    );
+
+    res.send(response.data);
+  } catch (e) {
+    console.error(`Issue with get: ${e}`);
+    res.send();
+  }
 });
 
 app.post('/', (req: Request, res: Response) => {
