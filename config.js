@@ -7,7 +7,7 @@ module.exports = {
     baseUrl: 'api.sandbox.ebay.com',
   },
   PRODUCTION: {
-    clientId: process.env.CLIENT_ID_Production,
+    clientId: process.env.CLIENT_ID_PRODUCTION,
     clientSecret: process.env.CLIENT_SECRET_PRODUCTION,
     devid: process.env.DEV_ID_PRODUCTION,
     redirectUri: process.env.REDIRECT_URI_PRODUCTION,
